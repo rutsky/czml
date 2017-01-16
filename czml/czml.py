@@ -345,11 +345,19 @@ class Position(_DateTimeAware):
     _cartographicDegrees = None
     interpolationAlgorithm = None
     interpolationDegree = None
+    forwardExtrapolationType = None
+    forwardExtrapolationDuration = None
+    backwardExtrapolationType = None
+    backwardExtrapolationDuration = None
 
     def __init__(self, **kwargs):
         self._properties += ('cartesian', 'cartographicRadians',
                              'cartographicDegrees', 'interpolationAlgorithm',
-                             'interpolationDegree', 'referenceFrame')
+                             'interpolationDegree', 'referenceFrame',
+                             'forwardExtrapolationType',
+                             'forwardExtrapolationDuration',
+                             'backwardExtrapolationType',
+                             'backwardExtrapolationDuration')
         super(Position, self).__init__(**kwargs)
 
     @property
@@ -651,7 +659,9 @@ class Billboard(_CZMLBaseObject):
 
     scale = None
 
-    _properties = ('show','image','color','scale')
+    rotation = None
+
+    _properties = ('show', 'image', 'color', 'scale', 'rotation')
 
 
 
